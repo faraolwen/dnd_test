@@ -114,7 +114,7 @@ const ImageTile = ({ image, index, moveImage }) => {
 
 const tileStyle = {
   border: '1px solid #ddd',
-  padding: '10px',
+  padding: '3px',
   backgroundColor: '#fff',
 };
 

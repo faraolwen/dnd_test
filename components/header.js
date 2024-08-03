@@ -1,3 +1,10 @@
+import Link from 'next/link'
+
 export default function Header() {
-    return <header>Header here</header>
+    return (
+        <header>
+            <Link href = "/"> home </ Link>
+            Header here
+        </header>
+    )
 }
