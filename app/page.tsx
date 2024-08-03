@@ -1,7 +1,9 @@
 // pages/index.js
 import React from 'react';
 import ImageGrid from '../components/ImageGrid';
-import Header from '../components/header'
+import Header from '@/components/header'
+import Footer from '../components/footer'
+import Deck_img_maker from '../components/deck_img_maker'
 
 const Home = () => {
   const imageUrls = [
@@ -19,10 +21,10 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div>
-        <h1>Drag and Drop Image Grid</h1>
-        <ImageGrid imageUrls={imageUrls} />
-      </div>
+
+      <Deck_img_maker />
+
+      <Footer />
     </>
   );
 };
