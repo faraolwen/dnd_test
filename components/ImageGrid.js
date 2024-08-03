@@ -48,22 +48,29 @@ const ImageGrid = ({ imageUrls }) => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={gridStyle}>
-        {error ? (
-          <div>{error}</div>
-        ) : (
-          images.map((image, index) => (
-            <ImageTile key={index} index={index} image={image} moveImage={moveImage} />
-          ))
-        )}
+      <div style={containerStyle}>
+        <div style={gridStyle}>
+          {error ? (
+            <div>{error}</div>
+          ) : (
+            images.map((image, index) => (
+              <ImageTile key={index} index={index} image={image} moveImage={moveImage} />
+            ))
+          )}
+        </div>
       </div>
     </DndProvider>
   );
 };
 
+const containerStyle = {
+  width: '30%',
+  margin: '0 auto',
+};
+
 const gridStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
+  gridTemplateColumns: 'repeat(4, 1fr)',
   gap: '10px',
 };
 
@@ -117,3 +124,4 @@ const imageStyle = {
 };
 
 export default ImageGrid;
+
