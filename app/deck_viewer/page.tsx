@@ -8,6 +8,9 @@ export default function Deck_viewer() {
   const divRef = useRef<HTMLDivElement>();
 
   const handleDownload = async () => {
+    const divRef = useRef<HTMLDivElement>(null);
+
+
     if (divRef.current) {
       // `html2canvas` をクライアントサイドでのみインポート
       const html2canvas = (await import('html2canvas')).default;
