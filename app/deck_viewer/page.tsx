@@ -6,7 +6,7 @@ import html2canvas from 'html2canvas';
 import React, { useRef } from 'react';
 
 export default function Deck_viewer() {
-  const divRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
     const canvas = await html2canvas(divRef.current);
