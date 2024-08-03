@@ -22,7 +22,7 @@ export default function Deck_viewer() {
     } else {
       console.error('divRef is null');
     }
-  }
+
   return (
     <>
     <h1>this is a new page</h1>
