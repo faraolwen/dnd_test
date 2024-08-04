@@ -19,7 +19,6 @@ export default function Deck_img_maker() {
     
     return (
         <>
-        <h1>main from component</h1>
         <ImageGrid imageUrls={imageUrls} />
         </>
     )

@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    flex-grow: 1;
+  }
+
+
+  .nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }

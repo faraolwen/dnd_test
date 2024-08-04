@@ -64,18 +64,29 @@ const ImageGrid = ({ imageUrls }) => {
 };
 
 const containerStyle = {
-  width: '30%',
+  width: '60%',
   margin: '0 auto',
 };
 
 const gridStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateColumns: 'repeat(10, 1fr)',
   gap: '10px',
 };
 
 const ImageTile = ({ image, index, moveImage }) => {
+  const [number, setNumber] = useState(1);
+  const [isEditing, setIsEditing] = useState(false);
   const ref = React.useRef(null);
+
+  const handleNumberClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleNumberChange = (event) => {
+    setNumber(event.target.value);
+    setIsEditing(false);
+  };
 
   const [, drop] = useDrop({
     accept: ItemTypes.IMAGE,
@@ -108,11 +119,25 @@ const ImageTile = ({ image, index, moveImage }) => {
   return (
     <div ref={ref} style={{ ...tileStyle, opacity: isDragging ? 0.5 : 1 }}>
       <img src={image} alt={`image-${index}`} style={imageStyle} />
+      <div style={numberContainerStyle} onClick={handleNumberClick}>
+        {isEditing ? (
+          <select value={number} onChange={handleNumberChange} onBlur={() => setIsEditing(false)} style={selectStyle}>
+            {[0, 1, 2, 3, 4].map((num) => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <span>{number}</span>
+        )}
+      </div>
     </div>
   );
 };
 
 const tileStyle = {
+  position: 'relative',
   border: '1px solid #ddd',
   padding: '3px',
   backgroundColor: '#fff',
@@ -123,5 +148,22 @@ const imageStyle = {
   height: 'auto',
 };
 
-export default ImageGrid;
+const numberContainerStyle = {
+  position: 'absolute',
+  bottom: '10px',
+  left: '10px',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  color: 'white',
+  padding: '5px',
+  borderRadius: '3px',
+  cursor: 'pointer',
+};
 
+const selectStyle = {
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  color: 'white',
+  border: 'none',
+  borderRadius: '3px',
+};
+
+export default ImageGrid;
