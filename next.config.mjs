@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/dnd_test',
-  assetPrefix: '/dnd_test/'
+  /*basePath: '/dnd_test',
+  assetPrefix: '/dnd_test/'*/
 };
 
 
